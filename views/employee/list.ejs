@@ -1,0 +1,42 @@
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/top_nav.ejs %>
+ 
+<main class="container">
+  <br>
+    <a href="/employee/add" class="btn btn-primary" ><i class="fa-solid fa-plus"></i>Add Employee</a>
+  </br>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Contact Number</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for (var i =0; i < EmployeeList.length;  i++ ) { %>
+            <tr>
+                <td><%= EmployeeList[i].name %></td>
+                <td><%= EmployeeList[i].address %></td>
+                <td><%= EmployeeList[i].contactNumber %></td>
+
+                <td>
+                  <a href="/employee/delete/<%= EmployeeList[i].id %>" class="btn btn-danger btn-sm"
+                    onclick="confirm('Are you sure you want to delete?')"
+                    >Delete</a>
+                </td>
+            </tr>
+            <% } %>
+          
+        </tbody>
+      </table>
+</main>
+
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>
+
+
+
